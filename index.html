@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ringraziamenti di Viviana</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    input {
+      padding: 10px;
+      font-size: 1em;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 300px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ringraziamenti di Viviana 💌</h1>
+  <p>Inserisci il tuo nome e cognome per leggere il tuo messaggio:</p>
+  <input type="text" id="nameInput" placeholder="Es. Mario Rossi">
+  <button onclick="showMessage()">Vedi il tuo messaggio</button>
+  <div class="message" id="messageBox"></div>
+
+  <script>
+    const messages = {
+      "Mario Rossi": "Grazie per il tuo supporto costante e per avermi fatto ridere nei momenti difficili.",
+      "Giulia Bianchi": "Sei stata una luce in questo percorso. Ti voglio bene.",
+      "Prof.ssa Graziella Malandrino": "Grazie per la guida, la pazienza e l'ispirazione costante.",
+      "Stefano Virgadaula": "Grazie per la presenza costante."
+    };
+
+    function showMessage() {
+      const name = document.getElementById('nameInput').value.trim();
+      const messageBox = document.getElementById('messageBox');
+      const message = messages[name];
+      if (message) {
+        messageBox.textContent = message;
+      } else {
+        messageBox.textContent = "Forse Viviana ti ha ringraziato con un abbraccio! 😄";
+      }
+    }
+  </script>
+</body>
+</html>
