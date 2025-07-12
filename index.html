@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ringraziamenti di Viviana</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       background-color: #f9f9f9;
       height: 100vh;
       background-image: url("https://i.pinimg.com/736x/b2/57/4a/b2574ad86deb06989224e8e5341d7777.jpg");
-      background-size: cover;        /* Riempi tutto */
-      background-repeat: no-repeat;  /* Non ripetere */
-      background-position: center;   /* Centra l’immagine */
-      background-attachment: fixed; 
-      /*background-size: 150px;*/
-      color: #333;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      padding: 20px;
+      align-items: center;
+      font-family: Arial, sans-serif;
     }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
+    .box {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
     }
-    input {
+    input[type="text"] {
+      width: 80%;
       padding: 10px;
+      margin-top: 10px;
       font-size: 1em;
-      margin-bottom: 10px;
-      width: 100%;
-      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
     button {
+      margin-top: 15px;
       padding: 10px 20px;
       font-size: 1em;
       background-color: #007bff;
       color: white;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
-      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
     }
     .message {
       margin-top: 20px;
-      font-size: 1.2em;
-      text-align: center;
-      max-width: 500px;
+      font-size: 1.1em;
+      color: #333;
+      min-height: 60px;
     }
   </style>
 </head>
-<div class="box">
-  <h1>Ringraziamenti di Viviana 🎓💌</h1>
-  <p>Inserisci il tuo nome e cognome per leggere il tuo messaggio:</p>
-  <input type="text" id="nameInput" placeholder="Es. Mario Rossi">
-  <button onclick="showMessage()">Vedi il tuo messaggio</button>
-  <div class="message" id="messageBox"></div>
-</div>
+<body>
+  <div class="box">
+    <h1>Ringraziamenti di Viviana 🎓 💌</h1>
+    <p>Inserisci il tuo nome e cognome per leggere il tuo messaggio:</p>
+    <input type="text" id="nameInput" placeholder="Es. Mario Rossi" />
+    <br />
+    <button onclick="showMessage()">Vedi il tuo messaggio</button>
+    <div class="message" id="messageBox"></div>
+  </div>
+
   <script>
     const messages = {
       "Mario Rossi": "Grazie per il tuo supporto costante e per avermi fatto ridere nei momenti difficili. Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.",
@@ -68,8 +78,8 @@
     };
 
     function showMessage() {
-      const name = document.getElementById('nameInput').value.trim();
-      const messageBox = document.getElementById('messageBox');
+      const name = document.getElementById("nameInput").value.trim();
+      const messageBox = document.getElementById("messageBox");
       const message = messages[name];
       if (message) {
         messageBox.textContent = message;
